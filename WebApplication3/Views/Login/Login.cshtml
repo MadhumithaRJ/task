@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<style>
+
+    ::placeholder {
+        padding-left: 10px;
+        color: white;
+        font-size: 14px;
+    }
+
+
+    .input-group {
+        border: 1px white solid;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .form-login {
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+
+    .loginbtn {
+        font-weight: 600;
+        font-size: 16px;
+        height: 45px;
+        background-color: white;
+        color: darkblue;
+        border: none;
+        padding: 5px;
+        border-radius: 4px;
+    }
+
+    .input-group-addon {
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1;
+        color: #555555;
+        text-align: center;
+        background-color: transparent;
+        border: 0px solid #ccc;
+        border-radius: 4px;
+        
+    }
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<body style=" font-family: Montserrat; background-color: #2148C0; background-image: url('../../images/BG.png'); background-repeat: no-repeat;
+ background-attachment: fixed; background-size: 100% 100%;">
+    <div>
+        <form class="form-login">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="ImageDiv" style="text-align:center;">
+
+                    <img src="~/images/Group.png" />
+                </div>
+
+                <div class="input-group" style="margin:25px;">
+                    <span class="input-group-addon">
+                        <img src="~/images/user.png" />
+                    </span>
+                    <input type="text"
+                           style=" border-color: white; height: 30px; border: none; background-color: transparent;color:white;" id="userNameId" placeholder="USERNAME" />
+
+                </div>
+
+
+                <div class="input-group" style="margin:25px;">
+                    <span class="input-group-addon">
+                        <img src="~/images/lock.png" />
+                    </span>
+
+                    <input type="password"
+                           style="border-color: white; height: 30px; border: none; background-color: transparent; color: white;" id="passwordId" placeholder="PASSWORD" />
+                </div>
+
+                <div class="row" style="margin:25px;">
+                    <button class="form-control loginbtn" id="loginButton" > LOGIN </button>
+                </div>
+
+                <div class="row" style="margin:25px;">
+                    <a style="color: white; float: right;font-size:16px; font-weight:500"> forgot password? </a>
+                </div>
+
+            </div>
+            <div class="col-lg-3"></div>
+
+        </form>
+    </div>
+</body>
+</html>
+<script>
+
+
+    //$(document).ready(function () {
+    //    alert("ready!");
+    //});
+
+        $(document).on('click', '#loginButton', function () {
+
+            var userName = $("#userNameId").val();
+            var password = $("#passwordId").val();
+
+            if (userName.toLowerCase() == "admin" && password.toLowerCase() == "admin") {
+                alert("Successfully Logged in");
+            }
+            else {
+                alert("invalid user");
+
+            }
+
+        })
+
+</script>
