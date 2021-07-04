@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "CreateAccount";
+}
+<style>
+    .add {
+        
+        font-style: normal;
+        border:none;
+    }
+    .int {
+        margin: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    .border {
+        background: #FFFFFF;
+        border: 1.53407px solid rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        border-radius: 15.3407px;
+        font-size:15px;
+        width:100%;
+    }
+</style>
+<div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div class="col-lg-4" style="background-color: #F6FBF9; border-radius: 49.0901px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+            <div class="int">
+                <label style="font-size:24px">Create An Account</label>
+            </div>
+            <div style="text-align:center; margin-left:10px;">
+                <label style="font-size:10px;">
+                    Infinite Possibilities
+                </label>
+            </div>
+            <div style="text-align: center; margin-left: 10px;">
+                <label style="font-size:10px;">
+                    One Stop Solution
+                </label>
+            </div>
+
+            <div class="int">
+                <input type="text" placeholder=" First Name" id="FirstName" class="add border" style="margin-top:20px" />
+            </div>
+            <div class="int">
+                <input type="number" placeholder=" Phone Number" id="PhoneNumber" class="add border" />
+            </div>
+            <div class="int">
+                <input type="email" placeholder=" Email Address" id="EmailAddress" class="add border" />
+            </div>
+            <div class="int">
+                <input type="password" placeholder=" Password" id="Password" class="add border" />
+            </div>
+            <div class="int">
+                <button class="add" style="background-color: #84C7AE; border-radius: 23px; font-size:18px; color:white;" onclick="createAccountClick()"> Create Account</button>
+            </div>
+            <div class="int">
+                <label class="add" style="font-size:18px">Already Have An Account? <a href='@Url.Action("SignIn","SignIn")'>Sign In</a></label>
+            </div>
+        </div>
+        
+
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+
+<script>
+    function createAccountClick() {
+
+        var firstName = $("#FirstName").val();
+        var password = $("#Password").val();
+        var emailAddress = $("#EmailAddress").val();
+        var phoneNumber = $("#PhoneNumber").val();
+
+        var userObject = {};
+        userObject.FirstName = firstName;
+        userObject.Password = password;
+        userObject.EmailAddress = emailAddress;
+        userObject.PhoneNumber = phoneNumber;
+            
+        var url = '@Url.Action("SaveUser")';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            cache: false,
+           // data: { firstName: firstName, password: password, emailAddress: emailAddress, phonenumber: phoneNumber },
+            data: { userObject: userObject },
+            success: function (result) {
+                $("#FirstName").val('');
+                $("#Password").val('');
+                $("#EmailAddress").val('');
+                $("#PhoneNumber").val('');
+                alert("succesfully created");
+
+                //console.log(result);
+            }
+        });
+
+
+    }
+</script>

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "PersonDetails";
+    
+}
+
+
+<style>
+    .add {
+        font-style: normal;
+        border: none;
+    }
+
+    .int {
+        margin: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .border {
+        background: #FFFFFF;
+        border: 1.53407px solid rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        border-radius: 15.3407px;
+        font-size: 15px;
+        width: 100%;
+    }
+</style>
+<div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div class="col-lg-4" style="background-color: #F6FBF9; border-radius: 49.0901px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+            <div class="int">
+                <label style="font-size:24px">Details of the Person</label>
+            </div>
+            <div style="text-align:center; margin-left:10px;">
+                <label style="font-size:10px;">
+                    Infinite Possibilities
+                </label>
+            </div>
+            <div style="text-align: center; margin-left: 10px;">
+                <label style="font-size:10px;">
+                    One Stop Solution
+                </label>
+            </div>
+
+            <div class="int">
+                <input type="text" placeholder=" First Name" id="FirstName" class="add border" style="margin-top:20px" />
+            </div>
+            <div class="int">
+                <input type="number" placeholder=" Phone Number" id="PhoneNumber" class="add border" />
+            </div>
+            <div class="int">
+                <input type="email" placeholder=" Email Address" id="EmailAddress1" class="add border" />
+            </div>
+            <div class="int">
+                <input type="password" placeholder=" Password" id="Password1" class="add border" />
+            </div>
+            <div class="int">
+                <button class="add" style="background-color: #84C7AE; border-radius: 23.011px; font-size:18px; color:white; height:50px; width:200px;"> Great!!</button>
+            </div>
+            
+        </div>
+
+
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        @*var userModel = "@ViewBag.DisplayUserModel";*@
+        console.log("Data loaded");
+        console.log(users);
+        alert("Data loaded");
+    });
+
+
+</script>

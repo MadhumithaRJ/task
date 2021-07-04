@@ -77,3 +77,7 @@ K:\vtrious\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csproj.Core
 K:\vtrious\WebApplication3\WebApplication3\obj\Debug\WebApplication3.csproj.CopyComplete
 K:\vtrious\WebApplication3\WebApplication3\obj\Debug\WebApplication3.dll
 K:\vtrious\WebApplication3\WebApplication3\obj\Debug\WebApplication3.pdb
+K:\vtrious\WebApplication3\WebApplication3\bin\EntityFramework.dll
+K:\vtrious\WebApplication3\WebApplication3\bin\EntityFramework.SqlServer.dll
+K:\vtrious\WebApplication3\WebApplication3\bin\EntityFramework.xml
+K:\vtrious\WebApplication3\WebApplication3\bin\EntityFramework.SqlServer.xml

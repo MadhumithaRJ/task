@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+}
+<style>
+    .form-login {
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+    .input {
+        font-size: 15px;
+        font-style: normal;
+       
+    }
+    .my {
+        background: #FFFFFF;
+        border: 1.53407px solid rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        border-radius: 15.3407px;
+    }
+    .group {
+       margin: 10px; 
+       text-align:center
+    }
+</style>
+
+<div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 " >
+        <div class="col-lg-4" style="background-color: #F6FBF9; border-radius:10px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="group">
+                <label style="font-size: 55px;">
+                    Sign In
+                </label>
+            </div>
+            <div style="margin-left: 10px; text-align: center">
+                <label style="font-size: 15px;">
+                    Infinite Possibilities
+                </label>
+            </div>
+            <div style=" margin-left: 10px; text-align: center">
+                <label style="font-size: 15px; ">
+                    One Stop Solution
+                </label>
+            </div>
+            <div class="group">
+                <input class="input my" type="email" placeholder="Email Address" style="width:100%;" id="EmailAddress" />
+            </div>
+
+            <div class="group">
+                <input class="input my" type="Password" placeholder="Password" style="width:100%;" id="Password" />
+            </div>
+
+            <div class="group">
+                <button onclick="GetInButtonClick()"  style="font-size: 23px;  width:50%; background: #84C7AE; border-radius: 23.011px; color:white; " id="GetIn">Get In</button>
+            </div>
+            <div class="group">
+                <lable> Create An Account? <a href='@Url.Action("CreateAccount","CreateAccount")'>Sign Up</a></lable>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+<script>
+    function GetInButtonClick()
+    {
+
+
+        var password = $("#Password").val();
+        var emailAddress = $("#EmailAddress").val();
+
+        var url = '@Url.Action("ValidateUser")';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            cache: false,
+            data: { emailAddress: emailAddress, password: password },
+
+            success: function (result) {
+                console.log("test");
+                console.log(result);
+                if (result.EmailAddress == '' || result.EmailAddress == null) {
+                    alert("Invalid user");
+                }
+                else {
+                    var url = '@Url.Action("PersonDetails", "PersonDetails")';
+                    /*, new { userModel =Json.})';*/
+                    //url = url.replace("parameter", result);
+                    window.location.href = url;
+                }
+
+
+                $("#Password").val('');
+                $("#EmailAddress").val('');
+                console.log(result);
+            }
+        });
+
+        @*window.location.href = '@Url.Action("PersonDetails","PersonDetails")';
+        alert("test");*@
+    }
+
+</script>
