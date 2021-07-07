@@ -23,9 +23,17 @@
     }
 </style>
 <div>
+    <div class="row">
+
+        <label class="switch" style="float:right">
+            <input type="checkbox" id="mode" onclick="modecheckboxclick()">
+            <span id="switchSpan" class="slider round"></span>
+        </label>
+
+    </div>
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        <div class="col-lg-4" style="background-color: #F6FBF9; border-radius: 49.0901px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+        <div class="col-lg-4" id="signindiv" style="background-color: #F6FBF9; border-radius: 49.0901px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
             <div class="int">
                 <label style="font-size:24px">Create An Account</label>
             </div>
@@ -59,7 +67,7 @@
                 <label class="add" style="font-size:18px">Already Have An Account? <a href='@Url.Action("SignIn","SignIn")'>Sign In</a></label>
             </div>
         </div>
-        
+
 
     </div>
     <div class="col-lg-3"></div>
@@ -97,6 +105,33 @@
                 //console.log(result);
             }
         });
+
+
+    }
+    function modecheckboxclick() {
+        if ($("#mode").is(":checked")) {
+            setColorToElement("black", "white", "black");
+
+        }
+        else {
+            setColorToElement("white", "black", "#A7D7C5");
+        }
+    }
+
+    function setColorToElement(bgColor, foreColor, pagebg) {
+        $('body').css("background-color", pagebg)
+        $("#signindiv").css("background-color", bgColor);
+        $("#signindiv").css("color", foreColor);
+        $("#EmailAddress").css("background-color", bgColor);
+        $("#EmailAddress").css("border-color", foreColor);
+        $("#Password").css("background-color", bgColor);
+        $("#Password").css("border-color", foreColor);
+        $("#PhoneNumber").css("background-color", bgColor);
+        $("#PhoneNumber").css("border-color", foreColor);
+        $("#FirstName").css("background-color", bgColor);
+        $("#FirstName").css("border-color", foreColor);
+
+
 
 
     }

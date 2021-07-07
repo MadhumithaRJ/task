@@ -24,11 +24,13 @@ namespace WebApplication3.Controllers
                 {
                     userObj = new User();
                 }
-                else
-                {
-                    ViewBag.DisplayUserModel = userObj;
-                }
                 return Json(userObj);
+
+                //else
+                //{
+                //    ViewBag.DisplayUserModel = userObj;
+                //}
+
                 //if (userObj != null)
                 //{
                 //    return  View("../PersonDetails/PersonDetails"); //RedirectToAction("PersonDetails", "PersonDetails");

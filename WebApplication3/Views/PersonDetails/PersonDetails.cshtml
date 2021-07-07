@@ -27,9 +27,17 @@
     }
 </style>
 <div>
+    <div class="row">
+
+        <label class="switch" style="float:right">
+            <input type="checkbox" id="mode" onclick="modecheckboxclick()">
+            <span id="switchSpan" class="slider round"></span>
+        </label>
+
+    </div>
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
-        <div class="col-lg-4" style="background-color: #F6FBF9; border-radius: 49.0901px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+        <div class="col-lg-4" id="signindiv" style="background-color: #F6FBF9; border-radius: 49.0901px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
             <div class="int">
                 <label style="font-size:24px">Details of the Person</label>
             </div>
@@ -44,22 +52,49 @@
                 </label>
             </div>
 
-            <div class="int">
-                <input type="text" placeholder=" First Name" id="FirstName" class="add border" style="margin-top:20px" />
+
+            <div class="=row" style="margin-top:20px">
+                <div class="col-md-4">
+                    <label id="firstNameLabel"> First Name : </label>
+                </div>
+                <div class="col-md-6">
+                    <label id="FirstName"> TEST </label>
+                </div>
             </div>
-            <div class="int">
-                <input type="number" placeholder=" Phone Number" id="PhoneNumber" class="add border" />
+
+            <div class="=row" style="margin-top:40px">
+                <div class="col-md-4" id="phoneNumberLabel">
+                    <label> Phone Number : </label>
+                </div>
+                <div class="col-md-6">
+                    <label id="PhoneNumber"> PhoneNumber 23233232 </label>
+                </div>
             </div>
-            <div class="int">
-                <input type="email" placeholder=" Email Address" id="EmailAddress1" class="add border" />
+
+
+
+            <div class="=row" style="margin-top:40px">
+                <div class="col-md-4" id="emailAddressLabel">
+                    <label> Email Address : </label>
+                </div>
+                <div class="col-md-6">
+                    <label id="EmailAddress"> EmailAddress 21331</label>
+                </div>
             </div>
-            <div class="int">
-                <input type="password" placeholder=" Password" id="Password1" class="add border" />
+
+            <div class="=row" style="margin-top:40px">
+                <div class="col-md-4" id="PasswordLabel">
+                    <label> Password : </label>
+                </div>
+                <div class="col-md-6">
+                    <label id="Password"> Madhu </label>
+                </div>
             </div>
+
             <div class="int">
-                <button class="add" style="background-color: #84C7AE; border-radius: 23.011px; font-size:18px; color:white; height:50px; width:200px;"> Great!!</button>
+                <button class="add" style="background-color: #84C7AE; border-radius: 23px; font-size:18px; color:white; height:50px; width:200px;"> Great!!</button>
             </div>
-            
+
         </div>
 
 
@@ -69,12 +104,34 @@
 
 <script>
     $(document).ready(function () {
-
+        //const fromData = sessionStorage.getItem('loginUserDetails');
+        //console.log(fromData);
+        //if (fromData != null && fromData != undefined) {
+        //    $("#EmailAddress").val(fromData.EmailAddress);
+        //}
         @*var userModel = "@ViewBag.DisplayUserModel";*@
-        console.log("Data loaded");
-        console.log(users);
-        alert("Data loaded");
+       // console.log("Data loaded");
+       // console.log(users);
+       // alert("Data loaded");
     });
+
+    function modecheckboxclick() {
+
+        
+        if ($("#mode").is(":checked")) {
+            setColorToElement("black", "white", "black");
+            
+        }
+        else {
+            setColorToElement("white", "black", "#A7D7C5");
+        }
+    }
+
+    function setColorToElement(bgColor, foreColor, pagebg) {
+        $('body').css("background-color", pagebg)
+        $("#signindiv").css("background-color", bgColor);
+        $("#signindiv").css("color", foreColor);
+    }
 
 
 </script>
