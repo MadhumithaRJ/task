@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace WebApplication3.Controllers
 {
-    public class DefaultController : Controller
-    {
-        // GET: Default
-        public ActionResult Default()
+    public class animationController : Controller
+    {   
+        // GET: animation
+        public ActionResult animation()
         {
             return View();
         }

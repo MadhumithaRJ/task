@@ -1,54 +1,160 @@
 ﻿
 @{
     ViewBag.Title = "Home";
+    Layout = null;
+
 }
-
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
 <style>
-        /*.parent {
-            align-items: center;
-            justify-content: center;
-        }*/
-        /* .main_content {
-            top: 160px;
-            left: 160px;
-            width: 800px;
-            min-height: 500px;
-            height: auto;
-            background-color: #2185C5;
-            position: relative;
+   
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
-        .container {
-            width: 640px;
-            height: auto;
-            margin: 0 auto;
-            padding: 10px;
-            position: relative;
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
         }
-    */
-    
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+     Rounded sliders 
+    .slider.round {
+        border-radius: 34px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
 </style>
+<!DOCTYPE html>
+<html>
+<head>
 
-<div  class="row" >
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto">
 
-        <div class="col-lg-6" style=" align-items: center; padding: 10px; float: left; margin-top:12%">
+    <link href="~/Content/UserDefined.css" rel="stylesheet" />
+</head>
+<body style="font-family: roboto; background-color: white; margin-left: 20px ">
+    <div class="navbar navbar-default navbar-fixed-top navbar-">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Vtrious", "Home", "Home", new { area = "" }, new { @class = "navbar-brand", Style = "color:#1ABBC6" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="float:right;">
+                    <li>@Html.ActionLink("Features", "Home", "Home")</li>
+                    <li>@Html.ActionLink("Pricing", "Home", "Home")</li>
+                    <li>@Html.ActionLink("Sign In", "Login", "Login", new { area = "" }, new { Style = "color:#71A89E" })</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-            <label style="font-size:48px; ">
-                Simple time tracking. powerful reporting.
+
+    <div class="row">
+
+
+        <div class="col-lg-6" style=" align-items: center; padding: 10px; float: left; margin-top:12%;">
+
+            <label style="font-size:48px; " id="label1" >
+                 Simple time tracking. powerful reporting.
             </label>
-            <label style="font-size:24px; ">
-                Turn your team on to productivity with gravity the time tracker.
+
+            <label style="font-size:24px; " id="label2">
+                 Turn your team on to productivity with gravity the time tracker.
             </label>
             <button style="height: 64px; width: 221px; left: -1px; top: 0px; background-color: #71a89e; color: white; box-shadow: 2px 2px black; border-radius: 8px; padding: 20px, 24px, 20px, 24px; ">
                 Request early access
             </button>
         </div>
+        
+         <div class="col-lg-5" style="align-items: center; padding: 10px; ">
+             <img src="~/images/illustration1.png" width="90%" style="align-items: center;" />
+         </div>
+         <div class="col-lg-1">
+             <label class="switch">
+                 <input type="checkbox" id="mode" onclick="modecheckboxclick()">
+                 <span id="switchSpan" class="slider round"></span>
+             </label>
+         </div>
+        
 
-        <div  class="col-lg-6" style="align-items: center; padding: 10px; float: right; ">
-            <img src="~/images/illustration1.png" width="90%"   style="align-items: center;"/>
-        </div>
-  
-</div>
+    </div>
+</body>
+</html>
+<script>
+        function modecheckboxclick() {
+            if ($("#mode").is(":checked")) {
+                setcolortoelement("black", "white");
+                
+            }
+            else {
+                setcolortoelement("white", "black");
+               
+            }
+
+        }
+
+        function setcolortoelement(bgcolor, forecolor ) {
+            $('body').css("background-color", bgcolor)
+
+            $("#label1").css("color", forecolor);
+            $("#label2").css("color", forecolor);
+
+        }
+    </script>
+
 
 
 
